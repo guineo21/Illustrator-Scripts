@@ -125,6 +125,7 @@ function getJPEGOptions()
 
     jpegSaveOpts.antiAliasing = false;
     jpegSaveOpts.qualitySetting = 100;
+    jpegSaveOpts.artBoardClipping = true;
     
     return jpegSaveOpts;
 }
@@ -140,6 +141,14 @@ function cropToSbb()
 {
     var doc = app.activeDocument;  
     var activeArtboardIndex = doc.artboards.getActiveArtboardIndex(); 
-    var rc =  doc.artboards[activeArtboardIndex].artboardRect;  
-    $.writeln(rc);
+    //    This will give left, top, right, bottom.
+    var rc =  doc.artboards[activeArtboardIndex].artboardRect;
+    var ro =  doc.artboards[activeArtboardIndex].rulerOrigin;
+    var ableft = rc [0];
+    var abtop =  rc[1];
+    var abright = 3888;//cropping setting the origin on the left.
+    var abbottom = rc[3];    
+    
+    doc.artboards[activeArtboardIndex].artboardRect = [ableft, abtop, abright, abbottom];
+    $.writeln(ro);
 }
