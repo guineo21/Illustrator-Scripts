@@ -61,6 +61,7 @@ if ( sourceFolder != null )
         for ( i = 0; i < files.length; i++ )
         {
             sourceDoc = app.open(files[i]); // returns the document object
+            $.writeln(files[i]);
             cropToSbb();
             // Call function getNewName to get the name and file to save the pdf
             targetFile = getNewName();
