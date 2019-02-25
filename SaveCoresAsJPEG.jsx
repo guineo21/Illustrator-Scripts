@@ -70,8 +70,7 @@ if ( sourceFolder != null )
  
             // Export as JPEG
             sourceDoc.exportFile( targetFile, type, jpegSaveOpts );
- 
-            sourceDoc.close();
+            sourceDoc.close( SaveOptions.DONOTSAVECHANGES );
         }
         alert( 'Files are saved as JPEG in ' + destFolder );
     }
@@ -143,12 +142,15 @@ function cropToSbb()
     var activeArtboardIndex = doc.artboards.getActiveArtboardIndex(); 
     //    This will give left, top, right, bottom.
     var rc =  doc.artboards[activeArtboardIndex].artboardRect;
-    var ro =  doc.artboards[activeArtboardIndex].rulerOrigin;
+    var ro = doc.artboards[activeArtboardIndex].rulerOrigin;
+    //$.writeln(rc);
+    //$.writeln(ro);
     var ableft = rc [0];
     var abtop =  rc[1];
-    var abright = 3888;//cropping setting the origin on the left.
+    var abright = rc[2]-10512;//cropping setting the origin on the left.
     var abbottom = rc[3];    
-    
+    //$.writeln(rc);
+    //$.writeln(ro);
     doc.artboards[activeArtboardIndex].artboardRect = [ableft, abtop, abright, abbottom];
-    $.writeln(ro);
+
 }
