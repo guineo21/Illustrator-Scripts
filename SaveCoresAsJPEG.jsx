@@ -24,10 +24,10 @@ This sample gets files specified by the user from the
 selected folder and batch processes them and saves them 
 as PDFs.
  
-Edits by Patrick Mineault:
+Edits by Vianney Miranda:
  - only .ai files processed
  - files saved in same folder as the input files
- - export files have name (oldname)_export.pdf
+ - Export JPEGS wi
  - PDF settings: non-editable / acrobatLayers=false 
       for maximum compatibility with Preview
  
